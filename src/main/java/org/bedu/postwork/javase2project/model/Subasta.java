@@ -13,6 +13,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import java.time.LocalDateTime;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -120,4 +121,15 @@ public class Subasta {
         this.pujas = pujas;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Subasta subasta)) return false;
+        return Objects.equals(subastaId, subasta.subastaId) && Objects.equals(fechaInicial, subasta.fechaInicial) && Objects.equals(fechaFinal, subasta.fechaFinal) && Objects.equals(producto, subasta.producto) && Objects.equals(precioInicial, subasta.precioInicial) && Objects.equals(precioFinal, subasta.precioFinal) && Objects.equals(status, subasta.status) && Objects.equals(pujaMinima, subasta.pujaMinima) && Objects.equals(pujaMaxima, subasta.pujaMaxima) && Objects.equals(pujas, subasta.pujas);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(subastaId, fechaInicial, fechaFinal, producto, precioInicial, precioFinal, status, pujaMinima, pujaMaxima, pujas);
+    }
 }

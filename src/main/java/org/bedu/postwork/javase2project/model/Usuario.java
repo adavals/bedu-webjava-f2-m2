@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -68,4 +69,15 @@ public class Usuario {
         this.pujas = pujas;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Usuario usuario)) return false;
+        return Objects.equals(usuarioId, usuario.usuarioId) && Objects.equals(nombre, usuario.nombre) && Objects.equals(rol, usuario.rol) && Objects.equals(contrasena, usuario.contrasena) && Objects.equals(pujas, usuario.pujas);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(usuarioId, nombre, rol, contrasena, pujas);
+    }
 }
