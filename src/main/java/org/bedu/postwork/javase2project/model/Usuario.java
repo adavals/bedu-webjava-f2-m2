@@ -24,8 +24,48 @@ public class Usuario {
     private String rol;
 
     private String contrasena;
-
     @OneToMany(mappedBy = "usuario")
     private Set<Puja> pujas = new HashSet<>();
+
+
+    public Long getUsuarioId() {
+        return usuarioId;
+    }
+
+    public void setUsuarioId(Long usuarioId) {
+        this.usuarioId = usuarioId;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
+    }
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
+
+    public Set<Puja> getPujas() {
+        return pujas;
+    }
+
+    public void setPujas(Set<Puja> pujas) {
+        this.pujas = pujas;
+    }
 
 }

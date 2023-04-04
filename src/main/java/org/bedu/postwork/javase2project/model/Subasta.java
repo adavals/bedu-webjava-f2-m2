@@ -40,6 +40,84 @@ public class Subasta {
     @OneToMany(mappedBy = "subasta")
     private Set<Puja> pujas = new HashSet<>();
 
+    public Long getSubastaId() {
+        return subastaId;
+    }
 
+    public void setSubastaId(Long subastaId) {
+        this.subastaId = subastaId;
+    }
+
+    public LocalDateTime getFechaInicial() {
+        return fechaInicial;
+    }
+
+    public void setFechaInicial(LocalDateTime fechaInicial) {
+        this.fechaInicial = fechaInicial;
+    }
+
+    public LocalDateTime getFechaFinal() {
+        return fechaFinal;
+    }
+
+    public void setFechaFinal(LocalDateTime fechaFinal) {
+        this.fechaFinal = fechaFinal;
+    }
+
+    public Producto getProducto() {
+        return producto;
+    }
+
+    public void setProducto(Producto producto) {
+        this.producto = producto;
+    }
+
+    public Double getPrecioInicial() {
+        return precioInicial;
+    }
+
+    public void setPrecioInicial(Double precioInicial) {
+        this.precioInicial = precioInicial;
+    }
+
+    public Double getPrecioFinal() {
+        return precioFinal;
+    }
+
+    public void setPrecioFinal(Double precioFinal) {
+        this.precioFinal = precioFinal;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Double getPujaMinima() {
+        return pujaMinima;
+    }
+
+    public void setPujaMinima(Double pujaMinima) {
+        this.pujaMinima = pujaMinima;
+    }
+
+    public Double getPujaMaxima() {
+        return pujaMaxima;
+    }
+
+    public void setPujaMaxima(Double pujaMaxima) {
+        this.pujaMaxima = pujaMaxima;
+    }
+
+    public Set<Puja> getPujas() {
+        return pujas;
+    }
+
+    public void setPujas(Set<Puja> pujas) {
+        this.pujas = pujas;
+    }
 
 }
