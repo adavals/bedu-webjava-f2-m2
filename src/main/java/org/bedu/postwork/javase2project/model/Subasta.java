@@ -1,18 +1,8 @@
 package org.bedu.postwork.javase2project.model;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -39,7 +29,7 @@ public class Subasta {
     private Double pujaMaxima;
 
     @OneToMany(mappedBy = "subasta")
-    private Set<Puja> pujas = new HashSet<>();
+    private Set<Puja> pujas;
 
     public Long getSubastaId() {
         return subastaId;

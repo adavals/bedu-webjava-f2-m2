@@ -1,13 +1,6 @@
 package org.bedu.postwork.javase2project.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import java.util.HashSet;
+import javax.persistence.*;
 import java.util.Objects;
 import java.util.Set;
 
@@ -25,8 +18,12 @@ public class Usuario {
     private String rol;
 
     private String contrasena;
+    /*@OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY, cascade = CascadeType.MERGE)*/
     @OneToMany(mappedBy = "usuario")
-    private Set<Puja> pujas = new HashSet<>();
+    /*@JoinColumn(name = "usuario_id")*/
+    private Set<Puja> pujas;
+
+    /*private Set<Puja> pujas = new HashSet<>();*/
 
 
     public Long getUsuarioId() {

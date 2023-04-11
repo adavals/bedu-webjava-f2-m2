@@ -8,6 +8,7 @@ class Javase2ProjectApplicationTests {
 
 	@Test
 	void contextLoads() {
+
 	}
 
 }

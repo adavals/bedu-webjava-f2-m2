@@ -1,12 +1,7 @@
 package org.bedu.postwork.javase2project.model;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -17,6 +12,30 @@ public class Puja {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "puja_id")
     private Long pujaId;
+
+    public Subasta getSubasta() {
+        return subasta;
+    }
+
+    public void setSubasta(Subasta subasta) {
+        this.subasta = subasta;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "subasta_id")
+    Subasta subasta;
+
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    Usuario usuario;
 
     private LocalDateTime fecha;
 
@@ -50,11 +69,11 @@ public class Puja {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Puja puja)) return false;
-        return Objects.equals(pujaId, puja.pujaId) && Objects.equals(fecha, puja.fecha) && Objects.equals(cantidad, puja.cantidad);
+        return Objects.equals(pujaId, puja.pujaId) && Objects.equals(fecha, puja.fecha) && Objects.equals(cantidad, puja.cantidad) && Objects.equals(usuario, puja.usuario) && Objects.equals(subasta, puja.subasta);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(pujaId, fecha, cantidad);
+        return Objects.hash(pujaId, fecha, cantidad, usuario, subasta);
     }
 }
