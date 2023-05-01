@@ -1,6 +1,7 @@
 package org.bedu.postwork.javase2project;
 
 import org.bedu.postwork.javase2project.model.Usuario;
+import org.bedu.postwork.javase2project.multithreading.Postwork2;
 import org.bedu.postwork.javase2project.persistence.UsuarioRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,7 +15,7 @@ public class Javase2ProjectApplication {
 
 	private static final Logger log = LoggerFactory.getLogger(Javase2ProjectApplication.class);
 	public static void main(String[] args) {
-
+		Postwork2.iniciaMultithreading();
 		SpringApplication.run(Javase2ProjectApplication.class, args);
 	}
 	@Bean

@@ -6,11 +6,33 @@ import org.bedu.postwork.javase2project.model.Subasta;
 import org.bedu.postwork.javase2project.model.Usuario;
 
 import java.time.LocalDateTime;
-import java.util.*;
+import java.util.HashSet;
+import java.util.Random;
+import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class Postwork2 {
+
+    public static void iniciaMultithreading() {
+        Random rnd = new Random();
+        ExecutorService pool = Executors.newCachedThreadPool();
+        Subasta[] subastas = new Subasta[]{
+                crearSubasta(rnd, "Lanzallamas", 1),
+                crearSubasta(rnd, "Atun Dolores", 2),
+                crearSubasta(rnd, "Frijolitos", 3),
+                crearSubasta(rnd, "Tsuru Tuneado", 4)
+        };
+        for(Subasta subasta : subastas){
+            try{
+                pool.execute(new CalculadoraGanadorSubasta(subasta));
+            }catch(Exception e){
+                System.out.println(e);
+            }
+        }
+        pool.shutdown();
+    }
+
     private static Subasta crearSubasta(Random rnd, String nombreProducto, long idSubasta) {
         Producto producto = new Producto();
         producto.setNombre(nombreProducto);
@@ -24,7 +46,7 @@ public class Postwork2 {
 
         Set<Puja> pujas = new HashSet<>();
         int i;
-        for (i = 0; i < 20; i++) ;
+        for (i = 0; i < 20; i++)
         {
             Usuario usuario = new Usuario();
             usuario.setUsuarioId(rnd.nextLong(1,20));
@@ -38,7 +60,7 @@ public class Postwork2 {
 
             pujas.add(puja);
         }
-        subasta.setPujas( pujas);
+        subasta.setPujas(pujas);
 
         return subasta;
     }
