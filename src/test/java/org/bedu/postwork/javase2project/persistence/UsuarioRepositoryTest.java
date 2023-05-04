@@ -11,7 +11,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import static org.junit.jupiter.api.Assertions.*;
+
+// Evitar Wildcards en las importaciones
+// import static org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 @SpringBootTest
 @ComponentScan(basePackages = "org.bedu.postwork.javase2project")
 @ExtendWith(SpringExtension.class)

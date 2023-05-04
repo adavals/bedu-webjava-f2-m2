@@ -15,7 +15,11 @@ import java.time.LocalDateTime;
 
 import java.time.LocalDateTime;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+// Evitar el uso de Wildcards en la importacion
+//import static org.junit.jupiter.api.Assertions.*;
+
+
 @SpringBootTest
 @ComponentScan(basePackages = "org.bedu.postwork.javase2project")
 @ExtendWith(SpringExtension.class)
