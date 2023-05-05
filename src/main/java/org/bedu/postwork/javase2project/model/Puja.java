@@ -16,6 +16,8 @@ import java.util.Objects;
 @Entity
 @Table(name = "puja")
 public class Puja {
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "puja_id")

@@ -15,9 +15,10 @@ public class CalculadoraGanadorSubasta implements Runnable {
         Double precioFinal = subasta.getPrecioInicial();
         String ganador = "";
 
-        for(Puja i : subasta.getPujas()) {
-            precioFinal += i.getCantidad();
-            ganador = i.getUsuario().getNombre();
+        // Cambio de nombre variable i por uno con mejor semantica
+        for(Puja puja : subasta.getPujas()) {
+            precioFinal += puja.getCantidad();
+            ganador = puja.getUsuario().getNombre();
         }
 
         System.out.printf("\n Subasta: " + subasta.getSubastaId() + " " + subasta.getProducto().getNombre()

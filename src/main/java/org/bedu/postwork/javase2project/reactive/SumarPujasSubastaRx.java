@@ -13,7 +13,7 @@ public class SumarPujasSubastaRx {
     public Mono<Double> obtenerSuma(Subasta subasta){
 
         return Flux.fromStream(subasta.getPujas().parallelStream())
-        .collect(Collectors.summingDouble(i -> i.getCantidad()));
+        .collect(Collectors.summingDouble(elemento -> elemento.getCantidad()));
 
     }
 

@@ -21,16 +21,16 @@ public class ReportePujas {
     }
 
     public List<Reporte> alfabetico(Subasta subasta){
-        return generaLista(subasta.getPujas(), (r1, r2 )-> r1.getNombreUsuario().compareTo(r2.getNombreUsuario()));
+        return generaLista(subasta.getPujas(), (primerReporte, segundoReporte )-> primerReporte.getNombreUsuario().compareTo(segundoReporte.getNombreUsuario()));
     }
 
     public List<Reporte> cantidadPuja(Subasta subasta){
-        return generaLista(subasta.getPujas(), (r1, r2 )-> r2.getCantidadPuja().compareTo(r1.getCantidadPuja()));
+        return generaLista(subasta.getPujas(), (primerReporte, segundoReporte )-> segundoReporte.getCantidadPuja().compareTo(primerReporte.getCantidadPuja()));
     }
 
     private List<Reporte> generaLista(Set<Puja> pujas, Comparator<Reporte> comparator){
         return pujas.stream()
-                .map(e -> new Reporte(e.getUsuario().getNombre(), e.getCantidad()))
+                .map(puja -> new Reporte(puja.getUsuario().getNombre(), puja.getCantidad()))
                 .sorted(comparator)
                 .collect(Collectors.toList());
 

@@ -19,6 +19,9 @@ import java.util.Set;
 @Entity
 @Table(name = "subasta")
 public class Subasta {
+
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "subasta_id")
